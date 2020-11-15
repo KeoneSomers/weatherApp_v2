@@ -1,0 +1,27 @@
+﻿@model weatherApp_v2.Models.OpenWeatherResponse
+
+<div class="col-md-4 offset-md-4 mt-5">
+    <form asp-action="IndexPost" class="mb-5">
+
+        <div class="input-group mb-3">
+            <input type="text" class="form-control form-control-lg" placeholder="Search by City..." asp-for="@Model.Name">
+            <input class="btn btn-outline-primary" type="submit" value="Search">
+        </div>
+
+    </form>
+
+
+
+    <h3>@Model.Name</h3>
+
+    <hr>
+
+    <p>Temperature: @Model.Main.Temp °C</p>
+    <br>
+    @* just to show I can show data from a list type in my model *@
+    @foreach (var item in Model.Weather)
+    {
+        <p>Description: @item.Description</p>
+        @* @item.Main *@
+    }
+</div>
